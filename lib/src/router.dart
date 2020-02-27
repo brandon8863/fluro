@@ -126,7 +126,7 @@ class Router {
         (RouteSettings routeSettings, Map<String, List<String>> parameters) {
       bool isNativeTransition = (transition == TransitionType.native ||
           transition == TransitionType.nativeModal);
-      if (isNativeTransition) {
+      if (!kIsWeb && isNativeTransition) {
         if (Theme.of(buildContext).platform == TargetPlatform.iOS) {
           return CupertinoPageRoute<dynamic>(
               settings: routeSettings,
